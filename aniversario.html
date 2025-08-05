@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>2 anitoss</title>
+  <style>
+    html, body {
+      height: auto;
+      overflow-y:auto;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffeef0, #f9f9ff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      color: #d00000;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    #typing {
+      font-size: 22px;
+      color: #444;
+      text-align: center;
+      padding: 10px 20px;
+      height: 60px;
+    }
+
+    .slideshow {
+      width: 80%;
+      max-width: 600px;
+      height: 800px;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 15px #d00000;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      border-radius: 20px;
+    }
+
+    .slideshow img.active {
+      display: block;
+    }
+
+    .frases {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .frases p {
+      font-size: 20px;
+      padding: 10px 20px;
+      color: #003366;
+    }
+
+    .frases button {
+      background-color: #d00000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s ease-in-out;
+    }
+
+    .frases button:hover {
+      background-color: #a00000;
+      transform: scale(1.1);      /* aumenta 10% */
+    }
+    .paragrafo1 {
+      background-color: #6c89be;  /* tom vermelho */
+      border-radius: 15px;        /* borda arredondada */
+      padding: 15px;              /* espaço interno pra não ficar grudado */
+      color: white;               /* texto branco pra contrastar */
+      margin: 20px auto;          /* distância de cima e baixo e centralizado */
+      max-width: 1800px;           /* largura máxima, opcional */
+    }
+
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-style: italic;
+      color: #444;
+      background-color: #ec9c9c;
+    }
+
+    /* Corações */
+    .coracao {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: red;
+      transform: rotate(45deg);
+      animation: cair 6s linear infinite;
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .coracao::before,
+    .coracao::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .coracao::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .coracao::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes cair {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="player" controls autoplay></audio>
+
+<script>
+  const player = document.getElementById('player');
+  const playlist = [
+    'Goo Goo Dolls - Iris (Lyrics)(MP3_160K).mp3',
+    'Coldplay X BTS - My Universe (Official Acoustic Version)(MP3_320K).mp3',
+    'Big Time Rush - Ask You Tonight (Official Audio)(MP3_160K).mp3',
+    'suzume.mp3'
+  ];
+  let current = 0;
+
+  function tocarMusica(index) {
+    player.src = playlist[index];
+    player.play();
+  }
+
+  player.addEventListener('ended', () => {
+    current = (current + 1) % playlist.length; // passa pra próxima música ou volta pra primeira
+    tocarMusica(current);
+  });
+
+  tocarMusica(current);
+</script>
+
+
+  <header>Feliz 2 Anos Momoziii ❤️</header>
+  <div id="typing"></div>
+
+  <div class="slideshow">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.51.14_8b1462ce.jpg" class="active">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.51.14_b22c1a6f.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.51.14_c5be4e78.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.51.14_cfdece20.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.54.42_1ea627e8.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.54.42_525abe24.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.54.42_c260a3f6.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 19.57.20_39e319d2.jpg">
+    <img src="Imagem do WhatsApp de 2025-08-05 à(s) 15.54.43_e53ba047.jpg">
+  </div>
+
+  <div class="frases">
+    <p id="frase">Você é a melhor parte da minha vida.</p>
+    <button onclick="trocarFrase()">Nova Frase</button>
+  </div>
+  <div class="paragrafo1">
+    <p>
+      Mozimo eu te amo muito muitao, to muito feliz que estamos juntos até aqui. Dois anos juntos, e que jornadinha boa não ksksks, a gente teve uns conflitos aqui e ali mas tudo bem, digamos que são um mal necessario pra todo casal, mas nunca deixamos que isso nos destruisse, destruisse o que tivemos e isso que importa. Cada sorriso seu, cada abraço, me lembra o quanto sou sortudo por te ter, vc é maravilhosa, perfeita do seu jeito unico, aquerla luz que brilha nos meus dias escuros, obrigado por ser a pessoa que esta do meu lado, me suportar, me entender, obrigado por vc ser vc e estar disposta assim como eu resolver as indiferenças.
+      infelizmente vc tem muitas coisas minhas ja dizendo tudo oq sinto ksksks digitar tudo aqui de novo seria repetitivo, e infelizmente não existem mais expressões que possa definir tudo de um jeito que eu ja não tenha te dito antes,
+    </p>
+  </div>
+
+  <footer>730 dias juntos caraa. E vamos contando… 💖</footer>
+
+  <script>
+    // Efeito de digitação
+    const texto = "Dois anos ao seu lado, e cada momento é um pedacinho do paraíso.";
+    let index = 0;
+    function digitar() {
+      if (index < texto.length) {
+        document.getElementById("typing").innerHTML += texto.charAt(index);
+        index++;
+        setTimeout(digitar, 50);
+      }
+    }
+    digitar();
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slideshow img');
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }
+    setInterval(showSlides, 3000);
+
+    // Frases
+    const frases = [
+      "Você é simplesmente a melhor parte da minha vida.",
+      "Te amo mais do que as palavras podem dizer.",
+      "Cada segundo com você vale uma eternidade.",
+      "Nosso amor é leve, sincero e eterno, e isso é raro.",
+      "Com você, tudo é mais bonito.",
+      "Você me completa em todos os sentidos.",
+      "Seu sorriso é meu lugar favorito.",
+      "Amo amar você.",
+      "Dois anos… e ainda parece o começo.",
+      "Meu futuro tem o seu nome."
+    ];
+    function trocarFrase() {
+      const index = Math.floor(Math.random() * frases.length);
+      document.getElementById("frase").innerText = frases[index];
+    }
+
+    // Corações flutuando
+    setInterval(() => {
+      const coracao = document.createElement('div');
+      coracao.className = 'coracao';
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 6000);
+    }, 300);
+  </script>
+
+</body>
+</html>
